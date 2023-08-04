@@ -1,0 +1,95 @@
+.Footer-Section{
+    background-color: #54835A;
+    padding: 50px 0;
+}
+.Footer-Detail .Footer-Desc{
+    font-size: 12px;
+    color: #FFFFFF;
+    width: 300px;
+    margin-top: 15px;
+}
+.Email-Form{
+    margin-top: 25px;
+}
+.Email-Form .MuiOutlinedInput-notchedOutline{
+     border: 2px solid #F9E9AF;
+}
+
+.Email-Form .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{
+    border: 2px solid #F9E9AF;
+}
+.Email-Form .MuiInputBase-input {
+    color: #F1EEEE;
+    padding: 15px 20px;
+}
+.Email-Form .MuiFormControl-root{
+    width: 250px;
+}
+.Email-Form .MuiInputBase-root{
+    border-radius: 10px;
+}
+.Subscribe-Btn{
+    margin-top: 20px;
+}
+.Subscribe-Btn .Subscription{
+    background-color: #F9E9AF;
+    padding: 10px 85px;
+    color: #FC6C3B; 
+    border-radius: 10px;
+    box-shadow: none;
+}
+.Subscribe-Btn .Subscription:hover{
+ background-color: #FB9022 ;
+ color: #ffffff;
+ transition: .5s all ease-in;
+}
+.Footer-Link .Footer-link-Title{
+    color: #F9E9AF;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.Link-Detail .Link-Desc {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 10px 0;
+    width: 200px;
+}
+.Footer-Image{
+    max-width: 100%;
+}
+.FooterImage-Desc .FooterImage-Content{
+    color: #FFFFFF;
+    font-size: 12px;
+    margin-top: 10px;
+    width: 250px;
+    font-weight: 400;
+}
+.Footer-Copyright{
+    background-color: #496E4D;
+    padding: 25px;
+}
+.Footer-copy-Detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Footer-copy-Detail .Footer-Copy-Title{
+    color: #ffffff;
+    line-height: 1.2;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+
+@media (max-width: 999.98px){
+    .Link-Detail .Link-Desc{
+        width: 100%;
+    }
+    .FooterImage-Desc .FooterImage-Content {
+        width: 100%;
+    }
+    .Footer-Detail .Footer-Desc{
+        width: 100%;
+    }
+}

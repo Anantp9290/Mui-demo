@@ -1,0 +1,83 @@
+.MuiPaper-root.OurServices{
+    padding: 50px 0;
+    box-shadow: none;
+}
+.Service-Heading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 23px;
+}
+.Service-Heading .Heading{
+    width: 600px;
+    text-align: center;
+}
+.Photography-Detail{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Photography-Detail .Photography-About{
+    padding: 20px 30px;
+    border-radius: 18px;
+}
+.PhotoGraphy .Wrap:nth-of-type(1) .Photography-About{
+    box-shadow: 0px 0px 6px #FEC4B0;
+}
+.PhotoGraphy .Wrap:nth-of-type(2) .Photography-About{
+    box-shadow: 0px 0px 5px #88A48B;
+}
+.PhotoGraphy .Wrap:nth-of-type(3) .Photography-About{
+    box-shadow: 0px 0px 5px #F6E6AB;
+}
+.PhotoGraphy .Wrap:nth-of-type(4) .Photography-About{
+    box-shadow: 0px 0px 6px #FEC4B0;
+}
+.PhotoGraphy .Wrap:nth-of-type(5) .Photography-About{
+    box-shadow: 0px 0px 5px #678E6C78;
+}
+.PhotoGraphy .Wrap:nth-of-type(6) .Photography-About{
+    box-shadow: 0px 0px 5px #F6E6AB;
+}
+
+.Photography-About .MuiCardContent-root{
+    padding: 0;
+}
+.Photography-About .MuiCardContent-root:last-child {
+    padding: 0;
+}
+.Photography-About .Photography-Type{
+    margin-top: 15px;
+    width: 250px;
+}
+.PhotoGraphy{
+    padding: 20px 40px ;
+}
+
+
+
+
+@media (max-width: 1199.98px){
+
+}
+
+
+@media (max-width: 599.98px){
+    .Service-Heading .Heading{
+        width: 100%;
+        font-size: 30px;
+    }
+    .Photography-About .Photography-Type{
+        font-size: 23px;
+        width: 100%;
+    }
+    .Photography-Detail .Photography-About{
+        padding: 20px;
+    }
+}
+@media (max-width: 499.98px){
+    .Service-Heading .Heading{
+        font-size: 23px;
+    }
+}

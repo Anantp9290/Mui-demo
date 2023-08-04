@@ -1,0 +1,1785 @@
+<style>
+   .page-content {
+   margin: 0 30px; 
+   background: #fff;
+   }
+   .tabbed {
+   margin: 32px 0;
+   padding-bottom: 15px;
+   }
+   .tabbed [type="radio"] {
+   display: none;
+   }
+   .tab_listing li img{
+     height: 20px !important;
+   }
+   .tabs {
+   display: flex;
+   flex-wrap: wrap;
+   list-style: none;
+   padding: 0;
+   justify-content: center;
+   background: #f9f9f9;
+   border-radius: 30px;
+   padding: 14px 5px;
+   }
+   .tab > label {
+   padding: 12px 5px;
+   width: 138px;
+   background: #fff;
+   color: #2ca9e1;
+   border-radius: 30px;
+   background: #fff;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-size: 14px; 
+   text-align:center;
+   font-weight: 700;
+   text-transform: capitalize;
+   cursor: pointer;  
+   transition: all 0.3s;
+   }
+   .tab > label span{
+     height:40px;
+    }
+   .tab > label .tab_img{
+    display: flex;
+    height: 80px;
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+   } 
+   .tab_img img{
+   display:inline-block;
+   max-width: 50px;
+   max-height: 50px;
+   object-fit: cover;
+   }
+   .tabs .tab{
+   padding:7px;
+   margin-top:4px;
+   }
+   .tab:hover label {
+   color: #121d3f;
+   }
+   .tab-content{
+   margin-top:50px;
+   display: none;
+   }
+   .tab-content .small-detail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .tab-content .small-detail h4 {
+   color: #121d3f;
+   text-transform:capitalize;
+   }
+   .tab-content .small-detail p {
+   color: #777;
+   font-size:16px;
+   margin-bottom:10px;
+   padding-right:50px;
+   }
+   .tab-content .small-detail p span {
+   color: #2fa7df;
+   font-weight:800;
+   }
+   /* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
+   .tabbed [type="radio"]:nth-of-type(1):checked ~ .tabs .tab:nth-of-type(1) label,
+   .tabbed [type="radio"]:nth-of-type(2):checked ~ .tabs .tab:nth-of-type(2) label,
+   .tabbed [type="radio"]:nth-of-type(3):checked ~ .tabs .tab:nth-of-type(3) label,
+   .tabbed [type="radio"]:nth-of-type(4):checked ~ .tabs .tab:nth-of-type(4) label,
+   .tabbed [type="radio"]:nth-of-type(5):checked ~ .tabs .tab:nth-of-type(5) label,
+   .tabbed [type="radio"]:nth-of-type(6):checked ~ .tabs .tab:nth-of-type(6) label,
+   .tabbed [type="radio"]:nth-of-type(7):checked ~ .tabs .tab:nth-of-type(7) label,
+   .tabbed [type="radio"]:nth-of-type(8):checked ~ .tabs .tab:nth-of-type(8) label,
+   .tabbed [type="radio"]:nth-of-type(9):checked ~ .tabs .tab:nth-of-type(9) label,
+   .tabbed [type="radio"]:nth-of-type(10):checked ~ .tabs .tab:nth-of-type(10) label,
+   .tabbed [type="radio"]:nth-of-type(11):checked ~ .tabs .tab:nth-of-type(11) label,
+   .tabbed [type="radio"]:nth-of-type(12):checked ~ .tabs .tab:nth-of-type(12) label,
+   .tabbed [type="radio"]:nth-of-type(13):checked ~ .tabs .tab:nth-of-type(13) label,
+   .tabbed [type="radio"]:nth-of-type(14):checked ~ .tabs .tab:nth-of-type(14) label,
+   .tabbed [type="radio"]:nth-of-type(15):checked ~ .tabs .tab:nth-of-type(15) label,
+   .tabbed [type="radio"]:nth-of-type(16):checked ~ .tabs .tab:nth-of-type(16) label,
+   .tabbed [type="radio"]:nth-of-type(17):checked ~ .tabs .tab:nth-of-type(17) label,
+   .tabbed [type="radio"]:nth-of-type(18):checked ~ .tabs .tab:nth-of-type(18) label,
+   .tabbed [type="radio"]:nth-of-type(19):checked ~ .tabs .tab:nth-of-type(19) label,
+   .tabbed [type="radio"]:nth-of-type(20):checked ~ .tabs .tab:nth-of-type(20) label,
+   .tabbed [type="radio"]:nth-of-type(21):checked ~ .tabs .tab:nth-of-type(21) label {
+   box-shadow:0 4px 19px 1px rgb(47 167 223 / 13%), 0 2px 20px -2px rgb(47 167 223 / 13%);
+   color: #121d3f;
+   font-weight: 700;
+   position:relative;
+   }
+   .tabbed [type="radio"]:nth-of-type(1):checked ~ .tabs .tab:nth-of-type(1) label::after,
+   .tabbed [type="radio"]:nth-of-type(2):checked ~ .tabs .tab:nth-of-type(2) label::after,
+   .tabbed [type="radio"]:nth-of-type(3):checked ~ .tabs .tab:nth-of-type(3) label::after,
+   .tabbed [type="radio"]:nth-of-type(4):checked ~ .tabs .tab:nth-of-type(4) label::after,
+   .tabbed [type="radio"]:nth-of-type(5):checked ~ .tabs .tab:nth-of-type(5) label::after,
+   .tabbed [type="radio"]:nth-of-type(6):checked ~ .tabs .tab:nth-of-type(6) label::after,
+   .tabbed [type="radio"]:nth-of-type(7):checked ~ .tabs .tab:nth-of-type(7) label::after,
+   .tabbed [type="radio"]:nth-of-type(8):checked ~ .tabs .tab:nth-of-type(8) label::after,
+   .tabbed [type="radio"]:nth-of-type(9):checked ~ .tabs .tab:nth-of-type(9) label::after,
+   .tabbed [type="radio"]:nth-of-type(10):checked ~ .tabs .tab:nth-of-type(10) label::after,
+   .tabbed [type="radio"]:nth-of-type(11):checked ~ .tabs .tab:nth-of-type(11) label::after,
+   .tabbed [type="radio"]:nth-of-type(12):checked ~ .tabs .tab:nth-of-type(12) label::after,
+   .tabbed [type="radio"]:nth-of-type(13):checked ~ .tabs .tab:nth-of-type(13) label::after,
+   .tabbed [type="radio"]:nth-of-type(14):checked ~ .tabs .tab:nth-of-type(14) label::after,
+   .tabbed [type="radio"]:nth-of-type(15):checked ~ .tabs .tab:nth-of-type(15) label::after,
+   .tabbed [type="radio"]:nth-of-type(16):checked ~ .tabs .tab:nth-of-type(16) label::after,
+   .tabbed [type="radio"]:nth-of-type(17):checked ~ .tabs .tab:nth-of-type(17) label::after,
+   .tabbed [type="radio"]:nth-of-type(18):checked ~ .tabs .tab:nth-of-type(18) label::after,
+   .tabbed [type="radio"]:nth-of-type(19):checked ~ .tabs .tab:nth-of-type(19) label::after,
+   .tabbed [type="radio"]:nth-of-type(20):checked ~ .tabs .tab:nth-of-type(20) label::after,
+   .tabbed [type="radio"]:nth-of-type(21):checked ~ .tabs .tab:nth-of-type(21) label::after {
+      display: block;
+     position: absolute;
+     bottom: 0;
+     width: 100px;
+     content: "";
+     border-radius:5px;
+     border-bottom: 4px solid #2fa7df;
+   }
+   .tabbed [type="radio"]:nth-of-type(1):checked ~ .tab-content:nth-of-type(1),
+   .tabbed [type="radio"]:nth-of-type(2):checked ~ .tab-content:nth-of-type(2),
+   .tabbed [type="radio"]:nth-of-type(3):checked ~ .tab-content:nth-of-type(3),
+   .tabbed [type="radio"]:nth-of-type(4):checked ~ .tab-content:nth-of-type(4),
+   .tabbed [type="radio"]:nth-of-type(5):checked ~ .tab-content:nth-of-type(5),
+   .tabbed [type="radio"]:nth-of-type(6):checked ~ .tab-content:nth-of-type(6),
+   .tabbed [type="radio"]:nth-of-type(7):checked ~ .tab-content:nth-of-type(7),
+   .tabbed [type="radio"]:nth-of-type(8):checked ~ .tab-content:nth-of-type(8),
+   .tabbed [type="radio"]:nth-of-type(9):checked ~ .tab-content:nth-of-type(9),
+   .tabbed [type="radio"]:nth-of-type(10):checked ~ .tab-content:nth-of-type(10),
+   .tabbed [type="radio"]:nth-of-type(11):checked ~ .tab-content:nth-of-type(11),
+   .tabbed [type="radio"]:nth-of-type(12):checked ~ .tab-content:nth-of-type(12),
+   .tabbed [type="radio"]:nth-of-type(13):checked ~ .tab-content:nth-of-type(13),
+   .tabbed [type="radio"]:nth-of-type(14):checked ~ .tab-content:nth-of-type(14),
+   .tabbed [type="radio"]:nth-of-type(15):checked ~ .tab-content:nth-of-type(15),
+   .tabbed [type="radio"]:nth-of-type(16):checked ~ .tab-content:nth-of-type(16),
+   .tabbed [type="radio"]:nth-of-type(17):checked ~ .tab-content:nth-of-type(17),
+   .tabbed [type="radio"]:nth-of-type(18):checked ~ .tab-content:nth-of-type(18),
+   .tabbed [type="radio"]:nth-of-type(19):checked ~ .tab-content:nth-of-type(19),
+   .tabbed [type="radio"]:nth-of-type(20):checked ~ .tab-content:nth-of-type(20),
+   .tabbed [type="radio"]:nth-of-type(21):checked ~ .tab-content:nth-of-type(21) {
+   display: flex;
+   flex-direction: column;
+   justify-content:center;
+   align-items:center;
+   }
+   .tab_content_img{
+   width:45%; float:left;
+   padding-right:50px;
+   }
+   .tab_content_text{
+   width: 50%; float:left;
+   }
+   .tab_content_text h2{
+   color: #121d3f;
+   font-size: 30px;
+   text-transform:capitalize;
+   margin-bottom:15px;
+   font-weight: bold;
+   }
+   .tab_content_img img{
+   width: 100%;
+   }
+   .button {
+   background-color: #2fa7df;
+   border: none;
+   color: #fff !important;
+   padding: 15px 26px;
+   text-transform:uppercase;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 14px;
+   box-shadow:0 4px 14px 1px rgb(47 167 223 / 12%), 0 2px 13px -2px rgb(47 167 223 / 13%);
+   margin: 4px 2px;
+   border-radius:10px;
+   margin-top:20px;
+   cursor: pointer;
+   }
+   .tab_listing{
+   padding:0;
+   margin:0;
+   margin-top:20px;
+   }
+   .tab_listing li{
+   text-decoration:none;
+   list-style:none;
+   margin-bottom:10px;
+   color:#777;
+   display:flex;
+   align-items: center;
+   }
+
+   .more-detail {
+      width: 100%;
+   }
+   .more-detail h4 {
+      color: #121d3f;
+      font-size: 32px;
+      text-align: center;
+      margin: 60px auto;
+   }
+   .more-detail .content-block {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: 0 auto;
+   }
+   .more-detail .content-block .card-list {
+      margin: 30px;
+      flex: 1 25%;
+      max-width: calc(25% - 60px);
+   }
+   .more-detail .content-block .card-list:first-child:nth-last-child(2), 
+   .more-detail .content-block .card-list:first-child:nth-last-child(2) ~ .card-list {
+    max-width: calc(50% - 60px);
+   }
+   .more-detail .content-block .card-list:only-child {
+    max-width: 650px;
+   }
+   .more-detail .content-block .card-list h6 {
+      color: #121d3f;
+      font-size: 20px;
+      margin: 16px auto;
+      font-weight: 500;
+   }
+   .more-detail .content-block .card-list p {
+      color: #777;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+   }
+
+   .more-detail .content-block .card-list .icon {
+      display: flex;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+   }
+   .more-detail .content-block .card-list .icon img {
+      width: 32px;
+   }
+   .more-detail .content-block .card-list .icon.color1 {
+      background: #e6f2f9;
+   }
+   .more-detail .content-block .card-list .icon.color2 {
+      background: #eaecf3;
+   }
+   .more-detail .content-block .card-list .icon.color3 {
+      background: #f8d1cd;
+   }
+   .more-detail .content-block .card-list .icon.color4 {
+      background: #f8e7c9;
+   }
+   .more-detail .content-block .card-list .icon.color5 {
+      background: #d6ecde;
+   }
+   .more-detail .content-block .card-list .icon.color6 {
+      background: #fdc689;
+   }
+   
+   .sub-section-detail {
+      width: 100%;
+      padding: 60px 0;
+      position: relative;
+   }
+   .content-center {
+      width: 90%;
+      display: flex;
+      margin: 0 auto;
+      z-index: 1;
+      position: relative;
+   }
+   .sub-section-detail .left {
+      width: 40%;
+      padding-top: 60px;
+      padding-right: 100px;
+   }
+   .sub-section-detail .right {
+      width: 60%;
+   }
+   .sub-section-detail .left h5 {
+      color: #232a4c;
+      font-size: 30px;
+      margin: 0 0 16px;
+      font-weight: bold;
+   }
+   .sub-section-detail .left h6 {
+      color: #121d3f;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 16px;
+   }
+   .sub-section-detail .left p {
+      color: #777777;
+      font-size: 14px;
+      margin: 0 0 12px;
+      line-height: 20px;
+   }
+   .sub-section-detail .right .screen-img img {
+      width: 100%;
+      z-index: 1;
+      position: relative;
+   }
+   .sub-section-detail .btn-trial {
+      background-color: #f27366;
+      border-radius: 10px;
+      border: none;
+      padding: 16px 40px 16px 16px;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      margin-top: 20px;
+   }
+   .sub-section-detail .btn-trial .icon {
+      width: 70px;
+      height: 70px;
+      background-color: #f5857a;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 16px;
+   }
+   .sub-section-detail .btn-trial .icon img {
+      width: 36px;
+   }
+   .sub-section-detail .btn-trial .btn-text .title {
+      display: block;
+      color: #fff;
+      font-size: 28px;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+   }
+   .sub-section-detail .btn-trial .btn-text .label {
+      display: block;
+      color: #fff;
+      font-size: 18px;
+      text-align: left;
+   }
+   .sub-section-detail .right .screen-img {
+      position: relative;
+   }
+   .sub-section-detail:after {
+      content: "";
+      position: absolute;
+      background: url(https://d3frdga3t4yih.cloudfront.net/crmone/crmone-bg-shape-5.png) no-repeat left bottom;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -60px;
+      background-size: contain;
+      max-width: 400px;
+      z-index: 0;
+   }
+
+   .tab_listing .list-point-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+   }
+
+   @media screen and (min-width: 1025px) and (max-width: 1199px) {
+      .more-detail .content-block .card-list {
+         flex: 1 33.33%;
+         max-width: calc(33.33% - 60px);
+      }
+   }
+   @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .more-detail .content-block .card-list {
+         flex: 1 50%;
+         max-width: calc(50% - 60px);
+      }
+   }
+   @media screen and (max-width: 900px) {
+      .tab_content_img{
+        width:100%; 
+        float:left;
+        padding-right:0;
+      }
+      .tab_content_text{
+        width: 100%; 
+        float:left;
+      }
+      .tab-content .small-detail {
+       flex-wrap: wrap;
+       flex-direction: column;
+      }
+      .content-center {
+         width: 100%;
+         flex-direction: column;
+      }
+      .sub-section-detail .left {
+         width: 100%;
+         padding: 0;
+      }
+      .sub-section-detail .right {
+         width: 100%;
+      }
+   }
+   @media screen and (max-width: 767px) {
+      .page-content {
+        margin:0;
+        width: 100%;
+      }
+      .tab-content .small-detail p {
+        padding-right:0;
+      }
+      .more-detail .content-block {
+         flex-direction: column;
+      }
+      .more-detail .content-block .card-list {
+         flex: 1;
+         max-width: calc(100% - 20px);
+         margin: 30px 10px;
+      }
+   }
+</style>
+<div class="page-content">
+   <div class="tabbed">
+      <input type="radio" id="tab1" name="css-tabs" checked>
+      <input type="radio" id="tab2" name="css-tabs">
+      <input type="radio" id="tab3" name="css-tabs">
+      <input type="radio" id="tab4" name="css-tabs">
+      <input type="radio" id="tab5" name="css-tabs">
+      <input type="radio" id="tab6" name="css-tabs">
+      <input type="radio" id="tab7" name="css-tabs">
+      <input type="radio" id="tab8" name="css-tabs">
+      <input type="radio" id="tab9" name="css-tabs">
+      <input type="radio" id="tab10" name="css-tabs">
+      <input type="radio" id="tab11" name="css-tabs">
+      <input type="radio" id="tab12" name="css-tabs">
+      <input type="radio" id="tab13" name="css-tabs">
+      <input type="radio" id="tab14" name="css-tabs">
+      <input type="radio" id="tab15" name="css-tabs">
+      <input type="radio" id="tab16" name="css-tabs">
+      <input type="radio" id="tab17" name="css-tabs">
+      <input type="radio" id="tab18" name="css-tabs">
+      <input type="radio" id="tab19" name="css-tabs">
+      <input type="radio" id="tab20" name="css-tabs">
+      <input type="radio" id="tab21" name="css-tabs">
+      <ul class="tabs">
+         <li class="tab">
+            <label for="tab1">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-conversion-icon.png" alt="Conversion icon" /></div>
+               <span>conversation</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab2">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-contact-icon.png" alt="Contact icon" /></div>
+                 <span>contact/lead</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab3">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-deal-icon.png" alt="Deal icon" /></div>
+                 <span>deal</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab4">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-task-icon.png" alt="Task icon" /></div>
+                 <span>task</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab5">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-quotes-icon.png" alt="Quotes icon" /></div>
+                 <span>quotes</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab6">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-products-icon.png" alt="Products icon" /></div>
+                 <span>products</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab7">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-appointment-icon.png" alt="Appointment icon" /></div>
+                <span> appointment</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab8">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-calender-icon.png" alt="Calender icon"></div>
+                <span>Calendar</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab9">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-funnel-icon.png" alt="Funnel icon"></div>
+                <span> funnel</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab10">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-website-builder-icon.png" alt="Website icon" /></div>
+                <span>website</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab11">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-social-icon-2.png" alt="Social icon" /></div>
+                <span> social</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab12">
+               <div class="tab_img"><img style="max-width: 45px; max-height: 45px;" src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-whatsapp-icon.svg" alt="WhatsApp icon" /></div>
+                 <span>WhatsApp</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab13">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-email-campaign-icon.png" alt="Email Campaign icon" /></div>
+                 <span>email campaign</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab14">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-sms-campaign-icon.png" alt="SMS Campaign icon" /></div>
+                 <span>SMS campaign</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab15">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-form-builder-icon.png" alt="Form Builder icon" /></div>
+                 <span>form builder</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab16">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-survey-icon.png" alt="Survey icon" /></div>
+                 <span>survey</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab17">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-email-builder-icon.svg" alt="Email Builder" /></div>
+                 <span>email builder</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab18">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-text-template-icon.svg" alt="Text Template icon" /></div>
+                 <span>Text template</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab19">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-link-tracking.png" alt="Link Tracking" /></div>
+                 <span>Link tracking</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab20">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-workflow-automation-icon.png" alt="Workflow Automation icon" /></div>
+                 <span>workflow automation</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab21">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-general-report-icon.png" alt="General Report" /></div>
+                <span> reports  </span>
+            </label>
+         </li>
+      </ul>
+      
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-conversation.png" alt="Conversation">
+            </div>
+            <div class="tab_content_text">
+               <h2>Conversation with contacts</h2>
+               <p>Conversation allows you to send and receive email, chat and make voice calls to your contacts. All you need to do is upload contacts and list them as per their present stage and interactions.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Supports multiple platforms like WhatsApp, Gmail, and others</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Supports voice calls using Twilio</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Supports video calls using Zoho and Google meet</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Organise your leads/clients' conversation in one place</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Unlimited Active Conversation</h6>
+                  <p>You can have unlimited active conversations and keep a track of them based on Low, medium, and high priority.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Schedule Appointments</h6>
+                  <p>Schedule appointments with your contacts and do not worry about making calls or sending multiple emails. You can also add guests and send invites.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Converstaion based task</h6>
+                  <p>You can create tasks based on present conversation and assign them to the respective team and set priorities as well.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Trigger campaigns</h6>
+                  <p>You can make the contact in conversation as a part of active email/text campaigns based on the stage of interactions.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Engage, build connections and boost conversion</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you integrate all major communication tools in one place and stay in touch with your contact and nurture them. <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with an all-in-one sales and marketing automation feature that you can use and increase the chances of converting your leads into sales.</p>
+                  <p>Start using the centralized conversation feature in <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="arrow icon" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-conversation-bottom.png" alt="conversation screen" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-add-contact.png" alt="add contact">
+            </div>
+            <div class="tab_content_text">
+               <h2>Upload unlimited contacts</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to upload unlimited contacts, create lists, automate tasks, and close more deals. Assign contacts to the users and prioritize the tasks.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Upload using an excel sheet or pull from other apps.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Arrange them as per your business goals.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Manage all communications in one place.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Increase your sales conversion.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Quick Access</h6>
+                  <p>Why maintain a different database or excel sheet for contacts when <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to upload unlimited contacts and access them from one login? Use <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> and get quick and easy access to all of your contact.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Manage Sales Pipeline</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> gives you the power to make sales and marketing communications with your contacts and manage your entire sales pipeline. Right from prospecting, to conversation, to nurturing, to sending quotes, to sending payment links, to providing support, you can do it all.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Easy Forecast</h6>
+                  <p>With <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> you can easily track the contact's present status and generate reports using predefined filters. Forecast lets you know the sales possibilities and expected revenue.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Upload, engage, and manage sales and marketing campaigns</h5>
+                  <p>Unlike other tools, <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> does not put any cap on the number of contacts uploaded. This gives you unlimited possibilities, you do not need to buy to buy a separate tool for sales automation and a separate tool for marketing automation. Upload your contact once and do all of your sales and marketing tasks from one login.</p>
+                  <p>Start using the <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> contact/lead management feature for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-contact-bulk.png" alt="contact bulk" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-deal.png" alt="deal">
+            </div>
+            <div class="tab_content_text">
+               <h2>Never miss on a deal.</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to create unlimited deals, assign them to sales representatives, make follow-up easy, and help you to boost your conversion.</p>
+              <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Keep a track of active deals in the sales pipeline.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Tells you about the average % of deals that will get closed.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Prioritize campaigns as per deal stage.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Decrease the chances of losing on any possible deals.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Automate</h6>
+                  <p>You can automate your deal stages and trigger different campaigns or messages to help you close the deal or solve any customer issues.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Assign and track</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to assign deals to respective sales and marketing persons and keep a track of their progress in the reports segment.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Monitor deals matrics</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you to monitor different metrics, like the number of active deals in your pipeline, Conversions, possible conversions, and more.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Create, assign, track and convert unlimited deals.</h5>
+                  <p>If you are still using a diary or an excel sheet to note down deals on day to day basis, then you probably know that there are times when you miss a deal just because you forgot to follow up or simply because you misplaced the data. With <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span>, you will never face this problem. You can upload all of your data in one place and manage them as per their stages and set reminders for important events.</p>
+                  <p>Start using <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> deal management feature for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-deal-add-unlimited.png" alt="deal add unlimited" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-task.png" alt="task">
+            </div>
+            <div class="tab_content_text">
+               <h2>Manage all projects related tasks in one place</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to manage unlimited projects and business from one login, making the task creation, assigning, and management really quick, easy to track, and boosts your team's productivity.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Create unlimited tasks for different businesses</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Access tasks status anytime using mobile app</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Makes team collaborations easy</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Task automation makes life easy for you and your team</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Automate repetitive tasks</h6>
+                  <p>At times repetitive tasks become mundane and boring. <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to automate repetitive tasks and save your team's time and make them more productive.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Centralized tracking</h6>
+                  <p>With one master login, you can create tasks for all of your businesses and users and keep a track of the daily progress, and set reminders for important events.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Transparent communication</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> makes sure that there is no grapevine in the communication between different teams and that every team member has clarity over tasks in hand and deals to be closed.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Plan-Prioritize-Execute-Track</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> lets you plan all of your tasks in advance, prioritize them as per their stages and conversion possibilities, and execute the desired actions like scheduling appointments, sending emails, making calls, sending quotes, and tracking the progress report for all active tasks</p>
+                  <p>Start using <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> task management feature for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-add-unlimited-task.png" alt="add unlimited task" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-quote.png" alt="quote">
+            </div>
+            <div class="tab_content_text">
+               <h2>Customized quote generation system</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to generate unlimited unique quotes for every active deal by different users and businesses.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Generate unlimited quotes</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Add products directly from the product library</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Share quotes using CRM or any other communication tools</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Set quote expiry date</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Track the status of every single quote</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Generate error-free quotes</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> gives you are ready to use the template with different fields, all you need to do is add the information asked and generate the quote.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Attach with deals</h6>
+                  <p>You can easily attach quotes with the active deals or create a new deal and assign it to the respective sales persons.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Consolidation</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you to consolidate all of the quotes, products, and deals in one place and analyze the performance of different businesses or salespeople.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Streamline your sales operations</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to streamline your sales operations by generating unlimited quotes, attaching them with respective deals and sales persons, and keeping a list of all quotes in one place. It increases your sales team's efficiency and helps them convert more.</p>
+                  <p>Start using <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> quote generator feature for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-quote-unlimited.png" alt="quote unlimited" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-product.png" alt="product" />
+            </div>
+            <div class="tab_content_text">
+               <h2>Add unlimited products</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to add unlimited products with names, descriptions, prices, and other information. You can directly add those products to your website, landing page, deals, or Quotes.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Create unlimited product categories</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Send product links using email/SMS campaigns</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Easy to use, needs no coding skills</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Cleaner and minimal look, no distraction for buyers</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Readymade template</h6>
+                  <p>We have done the work for you, <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with mandatory fields you need to show on your product page, just add that information and we are good to go.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Start selling online</h6>
+                  <p>You can build your website using <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span>, add products, do email marketing campaigns, generate quotes and start selling online.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Upgrade as you grow</h6>
+                  <p>You can register for the free user, add your 5 products and start selling online, and upgrade to the premium plan as you scale your business.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Add a new revenue stream to your business.</h5>
+                  <p>We are here to help you boost your revenue, use <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> and start creating your product categories and selling using the website or promotional emails. You can create your own custom product page template as well. You do not need any coding skills to add products.</p>
+                  <p>Start using <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> product management feature for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-add-unlimited-product.png" alt="add unlimited product" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-appointment.png" alt="appointment">
+            </div>
+            <div class="tab_content_text">
+               <h2>Schedule unlimited appointments</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to schedule appointments with existing users, prospects, clients, and other stakeholders.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Create 1:1 or multi attendee appointments</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Send appointment links directly to the contacts</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Easy to use, needs no coding skills</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Attach appointments with the lead</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Multiple attendees</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to add more than one attendee to the appointment, send them links and give a seamless appointment scheduling experience.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Add guests</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to add unlimited guests to the scheduled appointment.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Calendar integration</h6>
+                  <p>You can add a calendar to your appointments and keep the schedule booked for the proposed time.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Do not miss on any appointments</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> appointment scheduler helps you to streamline your meeting with your contacts. You can view all of your upcoming appointments in one place and if need be you can also see the reports of your past appointments.</p>
+                  <p>Start using the <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> appointment scheduler feature for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-appointment-scheduler.png" alt="appointment scheduler" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-calender.png" alt="calender">
+            </div>
+            <div class="tab_content_text">
+               <h2>Stay updated with your tasks and meetings</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with an in-built calendar that allows you to schedule your daily tasks, note important notes, set up meetings, and stay connected with team needs.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Integrate google calendar and stay updated.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Prioritize your work and plan your tasks accordingly.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Keep a track of all deadlines and progress.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Let team members know about your available schedule for the meeting.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Schedule</h6>
+                  <p>The calendar allows you to schedule appointments with your contacts in one-to-one, groups, availability, and based on authority.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Organise</h6>
+                  <p>You can easily organize all of your appointments, tasks, team meetings, upcoming deadlines, and more.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Meet deadlines</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to stay updated with your deadlines and help you to meet your deadlines or stay in communication.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Stay unlimited, achieve more</h5>
+                  <p>Eliminate unnecessary steps in your sales pipeline and directly communicate with the decision-makers, schedule demos, send quotations, and convert more. You can also add the calendar feature to your website, landing pages, and other funnels and automate booking and meetings.</p>
+                  <p>Start using the calendar feature in <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-calender-one-to-one.png" alt="calender one to one" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-funnel.png" alt="funnel">
+            </div>
+            <div class="tab_content_text">
+               <h2>Generate unlimited leads</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you to create different stages of the sales funnel as per your business needs and automate the entire journey. With <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> you can</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Build funnels from scratch.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Create sales, webinars, membership, or any other funnel of your choice.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Add customized lead generation forms.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Collect segment lead based on the defined target audience.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Send your funnel to unlimited contacts.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Automate email marketing campaigns.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Ready to use templates</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with ready-to-use funnel templates for 20+ niches, select the one you like and build your own in 5 mins.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Allows customization</h6>
+                  <p>You can create your funnel using our drag-and-drop funnel builder and customize the design as per your goals.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Automate workflows</h6>
+                  <p>You can automate the sales and marketing campaigns and send them directly to your contacts.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Integrate third-party apps</h6>
+                  <p>You can integrate stripe, mailgun, and a few other third-party apps and achieve more with funnels.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>More than just a funnel builder</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with an in-built funnel builder which not only allows you to build desired sales and marketing funnel but also lets you integrate it with third-party apps like Stripe, google calendar, and mailgun and automate the entire workflow based on different trigger points.</p>
+                  <p>Start using <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> funnel builder for free and upgrade to the premium plan as you grow your business.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-funnel-builder.png" alt="funnel builder" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-website.png" alt="website">
+            </div>
+            <div class="tab_content_text">
+               <h2>Build and host unlimited websites</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you to take your business online by building a free website using our ready-to-use website templates and drag-and-drop tool. We have 300+ active themes from 20+ niches.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Add your unique domain name</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Host your website for free</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Add customized forms and surveys</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Add unlimited products</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Integrate payment gateway</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Set up your blog</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Automate email marketing campaigns</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Customize</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with a free drag-and-drop tool, and inbuilt components using which you can customize your website design in the way you want and build an attractive website.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Integrate</h6>
+                  <p>You can integrate productive tools like calendars, email senders, payment gateway, direct call feature, and more. You can also integrate <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span>'s other features and make the most of your website.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Promote</h6>
+                  <p>You can link your social media profile with the website and manage all of your social media post scheduling directly from the website. You can also automate your email marketing campaigns for the leads coming from the website.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Sell</h6>
+                  <p>With <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> you get the benefit of converting your website into a sales platform, all you need to do is add products connect it with a payment gateway, and start selling your products online.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Develop your website</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> Website section  allows you to build a strong online presence, and to reduce the cost involved in building and maintaining a website. Moreover,<span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to build a website using 300+ available templates and to host it on our platform.</p>
+                  <p>With <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> you can also add leads forms, create a survey, schedule appointments and assign them to respective individuals, send customized and emails to your contact list and use a few more activities.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-website-builder.png" alt="website builder" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-social-media.png" alt="social media">
+            </div>
+            <div class="tab_content_text">
+               <h2>Boost your social-media marketing workflow</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows Startups small businesses multinational companies to marketing agencies to plan, create, schedule, and publish social media content across social platforms and publishing sites.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Integrate all of your social media accounts with <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span></li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Plan your social media marketing posts schedule</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Schedule your daily posts in advance</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Check your posts performance</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Share reports with team and clients</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Plan</h6>
+                  <p>With the help of the inbuilt <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> calendar, you can make a monthly content posting plan in advance and assign tasks to the creative team.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Post</h6>
+                  <p>Add all of your social media accounts in <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> and start posting your content on daily basis or schedule them as per your plan.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Analyze</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you in analyzing your social media content performance and make the required changes.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Analyse your social profiles</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps to manage content publishing/posting from one place.Moreover with <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> the social media team does not need to login to different platforms and publish day to day posts.The details concerning posts' engagement insights etc can be retrieved too.</p>
+                  <p>CrmOne, allows you to schedule your posts in advance and maintain consistency without bothering about posting daily at the same time. It let you analyze what is working and what needs improvement. Post, analyze, improve and grow.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-social-media-scheduler.png" alt="social media scheduler" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-whatsapp.png" alt="WhatsApp">
+            </div>
+            <div class="tab_content_text">
+               <h2>Now engage with your leads and customers on WhatsApp</h2>
+               <p>Now you can easily send marketing communications, build a conversation with your leads, boost Sales, and extend Support on WhatsApp using CrmOne.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">The shared inbox for all users on CrmOne</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Send automated templates to new leads</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Send bulk campaigns</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Free monthly 1000 conversations</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Sales Team</h6>
+                  <p>Your sales team can send predefined templates to leads and initiate conversation and boost sales.  It can also help your sales team in increasing sales retention.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Marketing Team</h6>
+                  <p>Your marketing team can connect with existing leads, customers, and other contacts to run campaigns and generate marketing qualified leads for the company.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Support Team</h6>
+                  <p>Your support team can get in touch with your customers on WhatsApp, solve their queries quickly, and increase customer delight.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Builds trust</h6>
+                  <p>WhatsApp helps you to have a real quick conversation with your customers, this not only results in better engagement but also build trust.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Boost your business growth</h5>
+                  <p>WhatsApp with <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you to stay at the top of the mind of your customers, you are able to have quick conversations, send campaigns, quotations, and payment link, and boost sales.</p>
+                  <ul class="tab_listing">
+                     <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Quick and easy to set up</li>
+                     <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Easy to initiate conversation</li>
+                     <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Improve leads/customers engagement</li>
+                     <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Boosts sales with increased retention rate</li>
+                  </ul>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-whatsapp-chat.png" alt="WhatsApp chat" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-email-campaign.png" alt="email campaign">
+            </div>
+            <div class="tab_content_text">
+               <h2>Engage your leads and customers</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with an inbuilt email campaign creator and sender. We do not have any cap on maximum usage, run unlimited campaigns and send unlimited emails.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Plan targeted email campaigns</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Create a highly convertible email</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Schedule your daily posts in advance</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Generate leads using email and forms</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Build your email list</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Start selling using CTA</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Email editor</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> gives you ready-to-use email templates, just pick your niche, select a relevant template and start using it.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Collaborate</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to use forms, surveys, product links, payment links, appointments, and others.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Automate</h6>
+                  <p>You can automate all of your email marketing and sales campaigns from one place and integrate them with other <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> features.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Track your email campaigns</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to automate your email marketing campaigns, we do not limit you by restricting your list size or by putting a cap on total email sent on daily or monthly basis. <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to create multiple campaigns with different trigger points and send to all of your contacts or to selected lists.</p>
+                  <p>Money lies in the list, and email marketing campaigns drive more than $36 for every $1 spent. Use <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> email marketing campaigns and easily create, automate, generate reports, analyze, create triggers and improve your conversion.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-free-email-campaign.png" alt="free email campaign" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-text-template.png" alt="text template">
+            </div>
+            <div class="tab_content_text">
+               <h2>Speed up business communication</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to use ready to use SMS template and send it directly to your contacts.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Ready to use SMS templates.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Send to bulk contacts.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Schedule as per your plan.</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Can do two-way communication.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>SMS templates</h6>
+                  <p>We have ready-to-use templates for most of the business communication, just pick the one you need and send it.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Schedule</h6>
+                  <p>You can schedule unlimited SMS campaigns and send them as per your trigger points.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>2-way communication</h6>
+                  <p>Send and receive messages in one place making sure that you do not miss any important communication.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Elevate your SMS Campaigns</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> SMS campaigns, allows you to create campaign sets for different different departments and use them accordingly. You can trigger a SMS for all business events like, new product launch, new offers, cashbacks that customers can use, and more. You can also send messages to your employees and share the business communication.</p>
+                  <p>All of these with one CRM tool, aimed to help you make your business communication faster and more personalized. Try <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> sms campaign feature, now and increase your response rate.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-text-template-unlimited.png" alt="text template unlimited" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-form-builder.png" alt="form builder">
+            </div>
+            <div class="tab_content_text">
+               <h2>Improve your conversion ratio</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> has an inbuilt form builder which allows you to create goal-based forms and integrate them with your funnels and share them with your target audience.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Build unlimited forms</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Integrate your form with the website and funnels</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Generate leads using trigger-based forms</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Customize the design as per your brand psychology</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Ready templates</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> has ready-to-use form templates that you can use directly or create your own using the drag-and-drop tool.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Collaborate</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to add forms directly to your websites, landing pages, and emails, send through SMS or share externally.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Automate</h6>
+                  <p>You can automate sending forms directly to the contacts based on the predefined trigger points.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Automated Form Builder</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> comes with a drag and drop form builder. The user can create unlimited forms and add it to their website or landing pages. Data collected through forms gets added to the dashboard and then the user can send them emails or SMS as per their business needs.</p>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows the user to filter your data sets based on business needs and separate tasks can be created for each or a group of contacts.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-form-builder-unlimited.png" alt="form builder unlimited" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-survey.png" alt="survey">
+            </div>
+            <div class="tab_content_text">
+               <h2>Collect honest feedback and improve your business</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to create surveys and send them directly to the target contacts or integrate them with websites, landing pages, or sales funnels.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Create unlimited surveys</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Integrate your surveys with the website and funnels</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Unlimited respondents</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Precise results</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">No added costs</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Easy to use</h6>
+                  <p>Use our drag-and-drop tool to easily build your custom survey forms.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Quick to analyze</h6>
+                  <p>See the real-time results and analyze them, create graphs and generate reports.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Flexible plan</h6>
+                  <p>We do not put any limitations on the usage and the tenure, create as many surveys as you want and use them as per your choice.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Record your Surveys</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows the user to create a survey with ready to use templates or by using the drag and drop features. The user can create multiple surveys, targeted at either your employees or at your customers. Data collected can be analyzed and reports can be downloaded in excel form.</p>
+                  <p>Why buy limited packs from others and pay extra everytime you reach your usage quota? Use CrmOne, the only CRM with endless possibilities and unlimited survey creation and user base.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-survey-builder.png" alt="survey builder" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-Email_bulder.jpg" alt="text-template">
+            </div>
+            <div class="tab_content_text">
+               <h2>Design Beautiful Emails With <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> Email Builder</h2>
+               <p>With email builder, you get complete access to create and delete any email template. Moreover, you can delete any campaign or can clone it as per the need. Getting access to create a template using HTML, drag and drop and text editor is an added benefit.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Create unlimited templates</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Avail any email template copy</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Develop any template from scratch even with coding</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Unlimited Predefined Email Templates</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> gives you ample free email templates to fasten your process of cold emails and to be your mail specialist every time you wish to mail someone. It has a predefined body text that you can save or discard based on your choice.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Customised Email Templates</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> knows you like customization so to fit your customization and personalization, <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> also offers you an alternative where you can create your email templates and can use them. You can even create a pre-defined text to use.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Advance Email Builder</h5>
+                  <p>Why pay 1000s of dollars to an email builder or to an agency, when you can use <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> to build an email that converts using ready to use templates or by simply using drag and drop features. No limit, create unlimited emails, add forms, products, surveys, and/or appointment scheduler.</p>
+                  <p>Use CrmOne, and create unlimited templates like newsletters, promotional offers, informational mails and others. You can also use HTML codes to customize your emails.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-Email_bulder_bottom.jpg" alt="text template unlimited" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-text-template.png" alt="text-template">
+            </div>
+            <div class="tab_content_text">
+               <h2>Pre-written texts</h2>
+               <p>Use our pre-written SMS texts, to build trust, win more clients, and increase your revenue.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">No need to write SMS on your own</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Use the template from our library</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Tweak as per your need</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Add custom fields and personalize</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Increase response rate</h6>
+                  <p>Text with powerful and persuasive words helps you improve the response rate from the target audience.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Theme based templates</h6>
+                  <p>We are pre-written texts for  appointment reminders, customer service, e-commerce SMS, Sales, promotional, and others.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Categorize</h6>
+                  <p>Categorize your theme based on different tags and save them, this will help you in searching the relevant text faster.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>All-in-one SMS Template</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> SMS template allows you to create ready to use SMS templates or access the pre-made templates and use them as per your business needs. There is absolutely no limit to the number of templates that you can create, modify, or save. So, create unlimited SMS templates aimed at customers or other stakeholders.</p>
+                  <p>You can save SMS templates with names and can import them directly while creating SMS campaigns using CrmOne.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-text-template-unlimited.png" alt="text template unlimited" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-link-tracking.png" alt="link tracking" />
+            </div>
+            <div class="tab_content_text">
+               <h2>Easy to generate and share</h2>
+               <p>Created to help you increase the conversion of your business goals by influencing the desired action on a click.</p>
+                <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Useful in drip marketing</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Easily creatable from CrmOne</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">No coding skill required</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Use in website, landing page, emails, or share through third-party tools</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Select desired action</h6>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> allows you to generate an actionable link for any desired action that you want your web traffic to take.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Automate re-marketing campaigns</h6>
+                  <p>You can automate your remarketing campaigns using the trigger links and integrating them with the email campaigns.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Improves conversion</h6>
+                  <p>Trigger links are always based on "If Conditions", and are a proven way to boost conversion.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Completely Automated Workflow</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> lets you automate your day to day business processes, with our tool you can easily automate your workflows and improve your productivity. You can automate your workflows based on predefined business processes/rules and reduce the possibilities of human error and save your time.</p>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you to reduce repetitive manual tasks, eliminate unwanted steps, save cost, stay productive and increase customer and employee satisfaction rate.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-unlimited-link-tracking.png" alt="unlimited link tracking" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-workflow.png" alt="workflow" />
+            </div>
+            <div class="tab_content_text">
+               <h2>Automate your business process</h2>
+               <p>With <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> you can automate your entire business process and eliminate repetitive tasks and reduce human error.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Automate unlimited workflow</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Eliminate repetitive and boring tasks</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Improve your team's overall efficiency</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Automate reporting</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Reduce workflow cycles</h6>
+                  <p>Eliminate all unnecessary tasks or tasks that can be automated and done by AI tools, and help your team save time.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Speed up delivery process</h6>
+                  <p>Workflow automation can help you speed up your entire project delivery process and increase customer satisfaction.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Saves money</h6>
+                  <p>Automation can help you find the possible leakages and focus more on things that are productive and save your operational cost.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Completely Automated Workflow</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> lets you automate your day to day business processes, with our tool you can easily automate your workflows and improve your productivity. You can automate your workflows based on predefined business processes/rules and reduce the possibilities of human error and save your time.</p>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> helps you to reduce repetitive manual tasks, eliminate unwanted steps, save cost, stay productive and increase customer and employee satisfaction rate.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial </span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-workflow-automation.png" alt="workflow automation" /></div>
+               </div>
+            </div>
+         </div>
+      </div> 
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-report.png" alt="report" />
+            </div>
+            <div class="tab_content_text">
+               <h2>Support your decision with data</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> has an inbuilt report generation feature that is connected to all important data collection source points.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Generate feature wise reports</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Analyze reports based on real-time data</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Use graphs and other attractive features</li>
+                  <li> <img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-checked.png" alt="Point icon" class="list-point-icon">Download reports and shares them with different stakeholders</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Macro-level reporting</h6>
+                  <p>Generate reports based on products, quotes, websites, emails, forms, surveys, deals, and more.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Business wise reports</h6>
+                  <p>You can view, analyze and download reports from every single business added to your account.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-common-icon-mobile.png" alt="common icon" /></div>
+                  <h6>Fast and reliable</h6>
+                  <p>Our report generation system is capable to generate real quick reports and gives you reliable reports backed by real data.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Automated Summarized Reports</h5>
+                  <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> bestows the automated reports organized to ease the analysis. It is a kind of summary highlighting the current status of the business. The reports generated here are time efficient, cost-effective, and have business visuals to advance the business analytics and accuracy.</p>
+                  <p>The user doesn't have to create separate reports every time which saves time and reduces the errors to a greater extent.</p>
+                  <a class="btn-trial" href="https://app.crmone.com/register/company">
+                     <div class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/crmone-arrow-btn.png" alt="img" /></div>
+                     <div class="btn-text">
+                        <span class="title">Get 21 Days Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crmone/admin-screen/crmone-report-unlimited.png" alt="report unlimited" /></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

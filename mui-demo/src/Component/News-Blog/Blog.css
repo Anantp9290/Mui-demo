@@ -1,0 +1,44 @@
+.Blog-Section{
+    padding: 50px 0;
+}
+.News-Section-Heading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.MuiPaper-root.Blog{
+    box-shadow: none;
+}
+.Span-Detail{
+    color: red;
+}
+.MuiTypography-root.Blog-Date{
+    margin-top: 20px;
+}
+.Blog-Date{
+    color: #757373;
+}
+.Blog .Blog-Title{
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.Blog  .Blog-desc{
+    font-size: 12px;
+    color: #757373;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 599.98px){
+    .News-Section-Heading .Heading{
+        font-size: 28px;
+    }
+}
+@media (max-width: 699.98px){
+    .Blog .Blog-Title{
+        font-size: 15px;
+    }
+}

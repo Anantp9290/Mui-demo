@@ -1,0 +1,55 @@
+.Work{
+    padding: 50px 0;
+}
+.Work-Detail{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+.Work-Detail::after{
+    content: "Works";
+    position: absolute;
+    font-size: 80px;
+    color: #E5E5E5;
+    font-weight: 500;
+    bottom: -26%;
+    right: -7%;
+    line-height: 1.2;
+}
+.WorkSection .Heading{
+    width: 350px;
+}
+.Work-Img{
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+.WorkSection-Image{
+    margin-top: 30px;
+}
+
+
+@media (max-width: 1199.98px){
+    .Work-Detail::after{
+        right: 0;
+    }
+}
+
+@media (max-width: 599.98px){
+    .Work-Detail::after{
+        position: unset;
+    }
+    .Work-Detail{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .WorkSection .Heading{
+        width: 100%;
+        font-size: 30px;
+    }
+    .Work{
+        padding: 20px 0;
+    }
+}

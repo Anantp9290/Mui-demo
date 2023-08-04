@@ -1,0 +1,140 @@
+
+.AboutSection{
+    padding: 150px 0 100px 0;
+        /* position: relative;
+        background-image: url(/public/Images/Bg.png);
+        background-repeat: no-repeat;
+        background-position: right center; */
+}
+.AboutDetail{
+    position: relative;
+    margin-left: 20px;
+}
+.AboutDetail::before{
+    content: "About Me";
+    position: absolute;
+    top: -24%;
+    bottom: 0;
+    left: -11%;
+    right: 0;
+    font-size: 80px;
+    color: #E5E5E5;
+    font-weight: 500;
+    width: fit-content;
+    height: fit-content;
+}
+.About-Img{
+    box-shadow: -20px 18px #54835A;
+    max-width: 100%;
+    height: auto;
+} 
+.main-wrapper{
+    position: relative;
+}
+.AboutDetail1{
+    height: 100%;
+    position: absolute;
+    /* left: 40%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    right: 0;
+}
+.AboutDetail1 .Heading{
+    text-align: right;
+    width: 70%;
+}
+.View-Btn{
+    margin-top: 15px;
+}
+.View-Btn .Login-Btn{
+    background: linear-gradient(to left, #ffffff 50%,  #FB9022 50%);
+    border: none;
+    position: relative;
+    background-size: 100% 100%;
+    transition: all 1s ease-out;
+    color: #000000;
+    box-shadow: none;
+}
+.View-Btn .Login-Btn:hover{
+    background-size: 200% 200%;
+    background-position: left top;
+    box-shadow: none;
+}
+
+@media (max-width: 1199.98px){
+    .AboutDetail::before{
+        left: -6%;
+    }
+    .AboutDetail::before{
+        left: 0;
+    }
+  }
+
+  @media (max-width: 999.98px){
+    .AboutDetail::before{
+        left: 0;
+        top: -28%;
+    }
+  }
+
+
+@media (max-width: 899.98px){
+    .AboutDetail::before{
+        left: 0;
+        top: -26%;
+        font-size: 60px;
+    }
+    .AboutDetail1 .Heading{
+        font-size: 30px;
+    }
+  }
+
+
+  @media (max-width: 699.98px){
+    .AboutDetail::before{
+        left: 0;
+        top: -32%;
+        font-size: 52px;
+    }
+    .AboutDetail1 .Heading{
+        font-size: 28px;
+    }
+  }
+  
+
+  @media (max-width: 599.98px){
+    .AboutDetail1{
+        position: unset;
+    }
+    .AboutDetail::before{
+        left: 0;
+        top: -18%;
+        font-size: 55px;
+    }
+    .AboutDetail1 .Heading{
+        font-size: 28px;
+        width: 100%;
+    }
+  }
+
+
+  @media (max-width: 499.98px){
+    .AboutDetail::before{
+        content: none;
+    }
+    .AboutSection{
+        padding: 85px 0 30px 0;
+    }
+    .AboutDetail .About-Title{
+        display: block;
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+    .AboutDetail1 .Heading{
+        font-size: 20px;
+    }
+  }

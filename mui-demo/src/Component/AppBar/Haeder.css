@@ -1,0 +1,69 @@
+.MuiAppBar-root.Header{
+    background-color: #FF8C58;
+    box-shadow: none;
+  }
+  
+  .MuiPaper-root{
+    width: 100%;
+  }
+  .Nav-btn{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+ 
+  .Nav-btn .MuiTypography-root{
+    color: #ffffff;
+    display: block;
+    padding: 10px;
+    text-transform: capitalize;
+  }
+  .Bar .Nav-btn .activeLink{
+    color: red;
+  }
+  /* .Nav-btn .MuiLink-root.inactive{
+    color: #FFFFFF;
+  } */
+
+
+  .Nav-btn .MuiLink-root:hover{
+    color: #F9E9AF;
+    background-color: #f9e98830;
+  }
+  
+  .Navbar{
+    flex-grow: 1;
+    display: none;
+    justify-content: flex-end;
+  }
+  .Login .Login-Btn{
+    display: flex;
+  }
+  .appbar-btn{
+    display: none;
+  }
+  .MuiContainer-root .Bar{
+    min-height: 80px;
+  }
+  
+  
+  
+  @media (max-width: 899.98px){
+    .Navbar{
+      display: flex;
+    }
+    .Nav-btn{
+      display: none;
+    }
+    .Login .Login-Btn{
+      display: none;
+    }  
+    .appbar-btn{
+      display: block;
+    }
+    .MuiContainer-root .Bar{
+      min-height: 60px;
+    }  
+  }
+  

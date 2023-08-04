@@ -1,0 +1,22 @@
+.BannerSection{
+    height: 800px;
+    background-color: #F9E9AF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/public/Images/Bg-1.png), url(/public/Images/Bg-2.png), url(/public/Images/Bg-3.png), url(/public/Images/Bg-4.png);
+    background-position: top left 12%, bottom 3% left, top 15% right, bottom right 24%;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+.BannerDeatil{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 899.98px){
+    .BannerSection{
+        background-image: none;
+        height: 400px;
+    } 
+  }

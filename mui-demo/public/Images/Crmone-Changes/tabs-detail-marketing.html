@@ -1,0 +1,1060 @@
+<style>
+   .page-content {
+   margin: 0 30px; 
+   background: #fff;
+   }
+   .tabbed {
+   /*overflow-x: hidden;*/ /* so we could easily hide the radio inputs */
+   margin: 32px 0;
+   padding-bottom: 15px;
+   }
+   .tabbed [type="radio"] {
+   /* hiding the inputs */
+   display: none;
+   }
+   .tab_listing li img{
+     height: 20px !important;
+   }
+   .tabs {
+   display: flex;
+   flex-wrap: wrap;
+   list-style: none;
+   padding: 0;
+   justify-content: center;
+   background: #f9f9f9;
+   border-radius: 30px;
+   padding: 14px 5px;
+   }
+   .tab > label {
+   padding: 12px 5px;
+   width: 138px;
+   background: #fff;
+   color: #2ca9e1;
+   border-radius: 30px;
+   background: #fff;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-size: 14px; 
+   text-align:center;
+   font-weight: 700;
+   text-transform: capitalize;
+   cursor: pointer;  
+   transition: all 0.3s;
+   }
+   .tab > label span{
+     height:40px;
+    }
+   .tab > label .tab_img{
+    display: flex;
+    height: 80px;
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+   } 
+   .tab_img img{
+   display:inline-block;
+   max-width: 50px;
+   max-height: 50px;
+   object-fit: cover;
+   }
+   .tabs .tab{
+   padding:7px;
+   margin-top:4px;
+   }
+   .tab:hover label {
+   color: #121d3f;
+   }
+   .tab-content{
+   margin-top:50px;
+   display: none;
+   }
+   .tab-content .small-detail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .tab-content .small-detail h4 {
+   color: #121d3f;
+   text-transform:capitalize;
+   }
+   .tab-content .small-detail p {
+   color: #777;
+   font-size:16px;
+   margin-bottom:10px;
+   padding-right:50px;
+   }
+   .tab-content .small-detail p span {
+   color: #2fa7df;
+   font-weight:800;
+   }
+   /* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
+   .tabbed [type="radio"]:nth-of-type(1):checked ~ .tabs .tab:nth-of-type(1) label,
+   .tabbed [type="radio"]:nth-of-type(2):checked ~ .tabs .tab:nth-of-type(2) label,
+   .tabbed [type="radio"]:nth-of-type(3):checked ~ .tabs .tab:nth-of-type(3) label,
+   .tabbed [type="radio"]:nth-of-type(4):checked ~ .tabs .tab:nth-of-type(4) label,
+   .tabbed [type="radio"]:nth-of-type(5):checked ~ .tabs .tab:nth-of-type(5) label,
+   .tabbed [type="radio"]:nth-of-type(6):checked ~ .tabs .tab:nth-of-type(6) label,
+   .tabbed [type="radio"]:nth-of-type(7):checked ~ .tabs .tab:nth-of-type(7) label,
+   .tabbed [type="radio"]:nth-of-type(8):checked ~ .tabs .tab:nth-of-type(8) label,
+   .tabbed [type="radio"]:nth-of-type(9):checked ~ .tabs .tab:nth-of-type(9) label,
+   .tabbed [type="radio"]:nth-of-type(10):checked ~ .tabs .tab:nth-of-type(10) label,
+   .tabbed [type="radio"]:nth-of-type(11):checked ~ .tabs .tab:nth-of-type(11) label,
+   .tabbed [type="radio"]:nth-of-type(12):checked ~ .tabs .tab:nth-of-type(12) label,
+   .tabbed [type="radio"]:nth-of-type(13):checked ~ .tabs .tab:nth-of-type(13) label,
+   .tabbed [type="radio"]:nth-of-type(14):checked ~ .tabs .tab:nth-of-type(14) label,
+   .tabbed [type="radio"]:nth-of-type(15):checked ~ .tabs .tab:nth-of-type(15) label,
+   .tabbed [type="radio"]:nth-of-type(16):checked ~ .tabs .tab:nth-of-type(16) label,
+   .tabbed [type="radio"]:nth-of-type(17):checked ~ .tabs .tab:nth-of-type(17) label,
+   .tabbed [type="radio"]:nth-of-type(18):checked ~ .tabs .tab:nth-of-type(18) label,
+   .tabbed [type="radio"]:nth-of-type(19):checked ~ .tabs .tab:nth-of-type(19) label,
+   .tabbed [type="radio"]:nth-of-type(20):checked ~ .tabs .tab:nth-of-type(20) label {
+   box-shadow:0 4px 19px 1px rgb(47 167 223 / 13%), 0 2px 20px -2px rgb(47 167 223 / 13%);
+   color: #121d3f;
+   font-weight: 700;
+   position:relative;
+   }
+   .tabbed [type="radio"]:nth-of-type(1):checked ~ .tabs .tab:nth-of-type(1) label::after,
+   .tabbed [type="radio"]:nth-of-type(2):checked ~ .tabs .tab:nth-of-type(2) label::after,
+   .tabbed [type="radio"]:nth-of-type(3):checked ~ .tabs .tab:nth-of-type(3) label::after,
+   .tabbed [type="radio"]:nth-of-type(4):checked ~ .tabs .tab:nth-of-type(4) label::after,
+   .tabbed [type="radio"]:nth-of-type(5):checked ~ .tabs .tab:nth-of-type(5) label::after,
+   .tabbed [type="radio"]:nth-of-type(6):checked ~ .tabs .tab:nth-of-type(6) label::after,
+   .tabbed [type="radio"]:nth-of-type(7):checked ~ .tabs .tab:nth-of-type(7) label::after,
+   .tabbed [type="radio"]:nth-of-type(8):checked ~ .tabs .tab:nth-of-type(8) label::after,
+   .tabbed [type="radio"]:nth-of-type(9):checked ~ .tabs .tab:nth-of-type(9) label::after,
+   .tabbed [type="radio"]:nth-of-type(10):checked ~ .tabs .tab:nth-of-type(10) label::after,
+   .tabbed [type="radio"]:nth-of-type(11):checked ~ .tabs .tab:nth-of-type(11) label::after,
+   .tabbed [type="radio"]:nth-of-type(12):checked ~ .tabs .tab:nth-of-type(12) label::after,
+   .tabbed [type="radio"]:nth-of-type(13):checked ~ .tabs .tab:nth-of-type(13) label::after,
+   .tabbed [type="radio"]:nth-of-type(14):checked ~ .tabs .tab:nth-of-type(14) label::after,
+   .tabbed [type="radio"]:nth-of-type(15):checked ~ .tabs .tab:nth-of-type(15) label::after,
+   .tabbed [type="radio"]:nth-of-type(16):checked ~ .tabs .tab:nth-of-type(16) label::after,
+   .tabbed [type="radio"]:nth-of-type(17):checked ~ .tabs .tab:nth-of-type(17) label::after,
+   .tabbed [type="radio"]:nth-of-type(18):checked ~ .tabs .tab:nth-of-type(18) label::after,
+   .tabbed [type="radio"]:nth-of-type(19):checked ~ .tabs .tab:nth-of-type(19) label::after,
+   .tabbed [type="radio"]:nth-of-type(20):checked ~ .tabs .tab:nth-of-type(20) label::after {
+      display: block;
+     position: absolute;
+     bottom: 0;
+     width: 100px;
+     content: "";
+     border-radius:5px;
+     border-bottom: 4px solid #2fa7df;
+   }
+   .tabbed [type="radio"]:nth-of-type(1):checked ~ .tab-content:nth-of-type(1),
+   .tabbed [type="radio"]:nth-of-type(2):checked ~ .tab-content:nth-of-type(2),
+   .tabbed [type="radio"]:nth-of-type(3):checked ~ .tab-content:nth-of-type(3),
+   .tabbed [type="radio"]:nth-of-type(4):checked ~ .tab-content:nth-of-type(4),
+   .tabbed [type="radio"]:nth-of-type(5):checked ~ .tab-content:nth-of-type(5),
+   .tabbed [type="radio"]:nth-of-type(6):checked ~ .tab-content:nth-of-type(6),
+   .tabbed [type="radio"]:nth-of-type(7):checked ~ .tab-content:nth-of-type(7),
+   .tabbed [type="radio"]:nth-of-type(8):checked ~ .tab-content:nth-of-type(8),
+   .tabbed [type="radio"]:nth-of-type(9):checked ~ .tab-content:nth-of-type(9),
+   .tabbed [type="radio"]:nth-of-type(10):checked ~ .tab-content:nth-of-type(10),
+   .tabbed [type="radio"]:nth-of-type(11):checked ~ .tab-content:nth-of-type(11),
+   .tabbed [type="radio"]:nth-of-type(12):checked ~ .tab-content:nth-of-type(12),
+   .tabbed [type="radio"]:nth-of-type(13):checked ~ .tab-content:nth-of-type(13),
+   .tabbed [type="radio"]:nth-of-type(14):checked ~ .tab-content:nth-of-type(14),
+   .tabbed [type="radio"]:nth-of-type(15):checked ~ .tab-content:nth-of-type(15),
+   .tabbed [type="radio"]:nth-of-type(16):checked ~ .tab-content:nth-of-type(16),
+   .tabbed [type="radio"]:nth-of-type(17):checked ~ .tab-content:nth-of-type(17),
+   .tabbed [type="radio"]:nth-of-type(18):checked ~ .tab-content:nth-of-type(18),
+   .tabbed [type="radio"]:nth-of-type(19):checked ~ .tab-content:nth-of-type(19),
+   .tabbed [type="radio"]:nth-of-type(20):checked ~ .tab-content:nth-of-type(20) {
+   display: flex;
+   flex-direction: column;
+   justify-content:center;
+   align-items:center;
+   }
+   .tab_content_img{
+   width:45%; float:left;
+   padding-right:50px;
+   }
+   .tab_content_text{
+   width: 50%; float:left;
+   }
+   .tab_content_text h2{
+      color: #121d3f;
+   font-size: 26px;
+   text-transform:capitalize;
+   margin-bottom:15px;
+   font-weight: 700;
+   }
+   .tab_content_img img{
+   width: 100%;
+   }
+   .button {
+   background-color: #2fa7df;
+   border: none;
+   color: #fff !important;
+   padding: 15px 26px;
+   text-transform:uppercase;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 14px;
+   box-shadow:0 4px 14px 1px rgb(47 167 223 / 12%), 0 2px 13px -2px rgb(47 167 223 / 13%);
+   margin: 4px 2px;
+   border-radius:10px;
+   margin-top:20px;
+   cursor: pointer;
+   }
+   .tab_listing{
+   padding:0;
+   margin:0;
+   margin-top:20px;
+   }
+   .tab_listing li{
+   text-decoration:none;
+   list-style:none;
+   margin-bottom:10px;
+   color:#777;
+   display:flex;
+   align-items: center;
+   }
+
+   .more-detail {
+      width: 100%;
+   }
+   .more-detail h4 {
+      color: #121d3f;
+      font-size: 32px;
+      text-align: center;
+      margin: 60px auto;
+   }
+   .more-detail .content-block {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: 0 auto;
+   }
+   .more-detail .content-block .card-list {
+      margin: 30px;
+      flex: 1 25%;
+      max-width: calc(25% - 60px);
+   }
+   .more-detail .content-block .card-list:first-child:nth-last-child(2), 
+   .more-detail .content-block .card-list:first-child:nth-last-child(2) ~ .card-list {
+    max-width: calc(50% - 60px);
+   }
+   .more-detail .content-block .card-list:only-child {
+    max-width: 650px;
+   }
+   .more-detail .content-block .card-list h6 {
+      color: #121d3f;
+      font-size: 22px;
+      margin: 16px auto;
+   }
+   .more-detail .content-block .card-list p {
+      color: #777;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+   }
+
+   .more-detail .content-block .card-list .icon {
+      display: flex;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+   }
+   .more-detail .content-block .card-list .icon img {
+      width: 32px;
+   }
+   .more-detail .content-block .card-list .icon.color1 {
+      background: #e6f2f9;
+   }
+   .more-detail .content-block .card-list .icon.color2 {
+      background: #eaecf3;
+   }
+   .more-detail .content-block .card-list .icon.color3 {
+      background: #f8d1cd;
+   }
+   .more-detail .content-block .card-list .icon.color4 {
+      background: #f8e7c9;
+   }
+   .more-detail .content-block .card-list .icon.color5 {
+      background: #d6ecde;
+   }
+   .more-detail .content-block .card-list .icon.color6 {
+      background: #fdc689;
+   }
+   
+   .sub-section-detail {
+      width: 100%;
+      padding: 60px 0;
+      position: relative;
+   }
+   .content-center {
+      width: 90%;
+      display: flex;
+      margin: 0 auto;
+      z-index: 1;
+      position: relative;
+   }
+   .sub-section-detail .left {
+      width: 40%;
+      padding-top: 60px;
+      padding-right: 100px;
+   }
+   .sub-section-detail .right {
+      width: 60%;
+   }
+   .sub-section-detail .left h5 {
+      color: #232a4c;
+      font-size: 26px;
+      margin: 0 0 16px;
+   }
+   .sub-section-detail .left h6 {
+      color: #121d3f;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 16px;
+   }
+   .sub-section-detail .left p {
+      color: #777777;
+      font-size: 14px;
+      margin: 0 0 12px;
+      line-height: 20px;
+   }
+   .sub-section-detail .right .screen-img img {
+      width: 100%;
+      z-index: 1;
+      position: relative;
+   }
+   .sub-section-detail .right .btn-trial {
+      background-color: #f27366;
+      border-radius: 10px;
+      border: none;
+      padding: 16px 40px 16px 16px;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-left: 50px;
+   }
+   .sub-section-detail .right .btn-trial .icon {
+      width: 70px;
+      height: 70px;
+      background-color: #f5857a;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 16px;
+   }
+   .sub-section-detail .right .btn-trial .icon img {
+      width: 36px;
+   }
+   .sub-section-detail .right .btn-trial .btn-text .title {
+      display: block;
+      color: #fff;
+      font-size: 28px;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+   }
+   .sub-section-detail .right .btn-trial .btn-text .label {
+      display: block;
+      color: #fff;
+      font-size: 18px;
+      text-align: left;
+   }
+   .sub-section-detail .right .screen-img {
+      position: relative;
+   }
+   .sub-section-detail .right .screen-img:before {
+      content: "";
+      position: absolute;
+      background: url(https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/arrow.png) no-repeat center center;
+      background-size: contain;
+      left: -30px;
+      bottom: -25px;
+      width: 200px;
+      height: 238px;
+      z-index: 0;
+   }
+   .sub-section-detail:after {
+      content: "";
+      position: absolute;
+      background: url(https://d3frdga3t4yih.cloudfront.net/crm/about-bg.png) no-repeat left bottom;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -60px;
+      background-size: contain;
+      max-width: 400px;
+      z-index: 0;
+   }
+
+   @media screen and (min-width: 1025px) and (max-width: 1199px) {
+      .more-detail .content-block .card-list {
+         flex: 1 33.33%;
+         max-width: calc(33.33% - 60px);
+      }
+   }
+   @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .more-detail .content-block .card-list {
+         flex: 1 50%;
+         max-width: calc(50% - 60px);
+      }
+   }
+   @media screen and (max-width: 900px) {
+      .tab_content_img{
+        width:100%; 
+        float:left;
+        padding-right:0;
+      }
+      .tab_content_text{
+        width: 100%; 
+        float:left;
+      }
+      .tab-content .small-detail {
+       flex-wrap: wrap;
+       flex-direction: column;
+      }
+      .content-center {
+         width: 100%;
+         flex-direction: column;
+      }
+      .sub-section-detail .left {
+         width: 100%;
+         padding: 0;
+      }
+      .sub-section-detail .right {
+         width: 100%;
+      }
+   }
+   @media screen and (max-width: 767px) {
+      .page-content {
+        margin:0;
+        width: 100%;
+      }
+      .tab-content .small-detail p {
+        padding-right:0;
+      }
+      .more-detail .content-block {
+         flex-direction: column;
+      }
+      .more-detail .content-block .card-list {
+         flex: 1;
+         max-width: calc(100% - 20px);
+         margin: 30px 10px;
+      }
+   }
+</style>
+<div class="page-content">
+   <div class="tabbed">
+      <input type="radio" id="tab1" name="css-tabs" checked>
+      <input type="radio" id="tab2" name="css-tabs">
+      <input type="radio" id="tab3" name="css-tabs">
+      <input type="radio" id="tab4" name="css-tabs">
+      <input type="radio" id="tab5" name="css-tabs">
+      <input type="radio" id="tab6" name="css-tabs">
+      <input type="radio" id="tab7" name="css-tabs">
+      <input type="radio" id="tab8" name="css-tabs">
+      <input type="radio" id="tab9" name="css-tabs">
+      <ul class="tabs">
+         
+         <li class="tab">
+            <label for="tab1">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Funnel-icon.svg" alt="img" /></div>
+                <span> funnel</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab2">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/website.png" alt="img" /></div>
+                <span>website</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab3">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Social.png" alt="img" /></div>
+                <span>social Media</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab4">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/EmailCampaign.svg" alt="img" /></div>
+                 <span>email campaign</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab5">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/SmsCampaign.svg" alt="img" /></div>
+                 <span>SMS campaign</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab6">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Form_Builder.png" alt="img" /></div>
+                 <span>form builder</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab7">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Survey_2.png" alt="img" /></div>
+                 <span>survey</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab8">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Email_Builder.png" alt="img" /></div>
+                 <span>email builder</span>
+            </label>
+         </li>
+         <li class="tab">
+            <label for="tab9">
+               <div class="tab_img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/SmsTemplate.svg" alt="img" /></div>
+                 <span>SMS template</span>
+            </label>
+         </li>
+      </ul>
+      
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/Funnel.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>funnel</h2>
+               <p><span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> favours you with an inbuilt funnel creation and representation. You can either build upon an existing funnel or you can curate a customised funnel as per your demand. The options like remove, copy and preview streamline the funnel and make it a more viable option to have a clear picture.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Complete funnel details</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Unlimited templates to use</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Fasten funnel development</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Funnel Dashboard</h6>
+                  <p>Simplify your workflow by designing a funnel to chase your work-progress.No more gaze over what's next.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Unlimited Funnel Templates</h6>
+                  <p>If you are new to funnel creation utilise the templates to save your time building from scratch. Also, create a customised funnel for any project if you have different requirements.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Infinite Users</h6>
+                  <p>CrmOne grants you complete control over users. Infinite users can work on a funnel simultaneously without the boundary of coding skills.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Personalised Funnel</h6>
+                  <p>With CrmOne you can effortlessly create a customised funnel with just a few clicks using the components and options tabs available. Furthermore, if you plan to create something unique you can move to the inbuilt HTML editor of CrmOne.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color5"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Inbuilt Templates</h6>
+                  <p>CrmOne delivers super-beneficial templates to utilise for your funnel while you design a funnel. The plus point is you can add functionalities of your preference to the existing template & can shape it to your advantage.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color6"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Quick Modifications</h6>
+                  <p>CrmOne's inbuilt funnel editor privileges you to make active changes to your funnel anytime from anywhere. The only thing it needs is your credentials.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color6"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Drag & Drop Functionality</h6>
+                  <p>While designing your funnel with CrmOne, you just have to drag and drop the crucial sections that match your funnel constraints from the already existing sections of CrmOne and your funnel will be prepared.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color6"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Multiple Integrations</h6>
+                  <p>When you create a funnel with CrmOne you get broad access to seamless integrations. With the inbuilt integrations, you can extend your funnel integrations.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Customize your Funnel</h5>
+                  <p>CrmOne's inbuilt funnel builder is a reliable funnel builder to accelerate product development. The hundreds of templates are available here for various purposes. The user can drag and drop from the various components and can customize their funnel as per their needs.</p>
+                  <p>The best part about this funnel is multiple users can work on it, the modifications are superfast and integrations are effortless enough to help you make the best out of it.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/FunnelBottom.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/Website.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>website</h2>
+               <p>Now save your hard-earned money with cost-effective website development with CrmOne.Get complete access to a website with <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span>.Moreover, if you are someone who has zero knowledge of development still you can develop your website with almost zero coding skills.</p>
+             <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Templates to accelerate your workflow</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Actions like a clone and delete to favour your modifications</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Reduce the time and cost to a greater extent</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Infinite Users</h6>
+                  <p>With CrmOne you get complete control over users. Unlimited users can work on a website simultaneously as per their comfort with almost zero knowledge of coding.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Personalised Website</h6>
+                  <p>CrmOne allows you to create a customised website using the components and functionalities available. Moreover, if you desire to create something new you can use the inbuilt HTML editor of CrmOne.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Inbuilt Templates</h6>
+                  <p>CrmOne offers you a plethora of templates to use for your website while you create a website. You can even add functionalities of your choice to the existing template & can curate it for your benefit.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Quick Modifications</h6>
+                  <p>CrmOne's inbuilt website editor provides you the authority to make active modifications to your website anytime from anywhere. All you need is your credentials.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color5"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Drag & Drop Functionality</h6>
+                  <p>While developing your website with CrmOne you just have to drag and drop the essential sections that suit your website from the predesigned sections of CrmOne and your website will be ready to host.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color6"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Multiple Integrations</h6>
+                  <p>The website that you create with CrmOne will be available for different social media integrations. You can make endless integrations using the inbuilt integration mechanism provided by CrmOne.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color6"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Inherent Website Hosting</h6>
+                  <p>CrmOne gives you the ability to host your website using CrmOne hosting settings. You don't have to switch to different hosting providers for it.CrmOne's Inbuilt hosting is satisfactory enough.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Develop your website</h5>
+                  <p>CrmOne’s Website section  allows you to build a strong online presence, and to reduce the cost involved in building and maintaining a website. Moreover,CrmOne allows you to build a website using 300+ available templates and to host it on our platform.</p>
+                  <p>With CrmOne you can also add leads forms, create a survey, schedule appointments and assign them to respective individuals, send customized and emails to your contact list and use a few more activities.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/WebsiteBottom.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fsocial.png?alt=media&token=b2583ef7-04fd-49ea-80c4-1c2f1662b196" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>social</h2>
+               <p>Now no more struggling with different social apps. The social section of <span style="color:#121d3f;">Crm</span><span style="color:#2ca9e1;">One</span> bestows you with a superfast posting section. Here you can create a post and quickly post it to any of your connected social media in one click. The automation of scheduling posts is a plus point.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Superfast posting</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">No more switching of apps</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Get all your post details in one place</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Personalised Social Dashboard</h6>
+                  <p>CrmOne bestows you with a dashboard highlighting all your social profiles and their vital details. Moreover, you can quickly schedule a post with CrmOne without any limit on the number of posts.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Quick Access</h6>
+                  <p>With CrmOne you don't have to switch tabs to answer queries. You can straight away view all the queries in one place and can answer them in minutes without any hassle.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Full-Fledged Preview</h6>
+                  <p>CrmOne showcases you a complete preview of your post before posting. You can have an exact picture and can peep into how your post will look after posting.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Analyse your social profiles</h5>
+                  <p>CrmOne helps to manage content publishing/posting from one place.Moreover with CrmOne the social media team does not need to login to different platforms and publish day to day posts.The details concerning posts' engagement insights etc can be retrieved too.</p>
+                  <p>CrmOne, allows you to schedule your posts in advance and maintain consistency without bothering about posting daily at the same time. It let you analyze what is working and what needs improvement. Post, analyze, improve and grow.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/testing-2.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/EmailCampaign.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>email campaign</h2>
+               <p>Never miss sharing an email with all your clients. Automate your everyday tedious mailing process. Simply create a campaign and dump your mails to all your clients like never before. Also, find any email in seconds with a new fast-track email search.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Avail a detailed report of your emails</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Share all your emails in one go</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Clone any campaign as per the need</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Schedule unlimited Email Campaigns</h6>
+                  <p>CrmOne grants you the ability to create infinite email campaigns. You can send emails to bulks without stressing about being spam or getting your mail blocked. You can simply organise your emails to be sent in clusters with the delay time between every mail.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Reuse your old campaign</h6>
+                  <p>You can use your old email campaign rather than creating a new one from scrape. It assists to be speedy, efficient, and error-free. Moreover, it saves time spent on designing a new email campaign every time.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Automated Personalised Emails</h6>
+                  <p>CrmOne supports automated personalised emails with predefined fields. You can simply create an email template with the details that you desire to switch for every user and the system will automate it without any human assistance.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Track your email campaigns</h5>
+                  <p>CrmOne allows you to automate your email marketing campaigns, we do not limit you by restricting your list size or by putting a cap on total email sent on daily or monthly basis. CrmOne allows you to create multiple campaigns with different trigger points and send to all of your contacts or to selected lists.</p>
+                  <p>Money lies in the list, and email marketing campaigns drive more than $36 for every $1 spent. Use CrmOne email marketing campaigns and easily create, automate, generate reports, analyze, create triggers and improve your conversion.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/EmailCampaignBottom.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/SmsTemplate.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>sms campaign</h2>
+               <p>The SMS campaign channel delivers you a wide, clean campaign dashboard. It makes it easy for you to view all your SMS campaigns in the blink of an eye. Moreover, you can schedule bulk SMS in one click at your comfort which is an added benefit.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Access to all the SMS Campaigns</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Advanced filters to filter any campaign</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Add unlimited campaigns based on the need</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Schedule Unlimited Campaigns</h6>
+                  <p>CrmOne gives you an opportunity where you can organise infinite campaigns. You can share bulk messages to any of your clients sitting anywhere in the world in just one click.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Campaign Reusability</h6>
+                  <p>With CrmOne you can clone any of your campaigns an infinite number of times. You don't have to create the same campaign again and again from scratch. You can simply build on your previous campaigns.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Well-Articulated Representation</h6>
+                  <p>CrmOne gives a well-articulated representation of a complete campaign. It reflects how many messages were successfully delivered, the messages that failed, and the messages that were not delivered.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Advanced Filters</h6>
+                  <p>With the help of CrmOne, you can readily segregate your messages based on the filters of your choice. The advanced filters of the SMS campaign will downsize the latency and will smooth your search process.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Elevate your SMS Campaigns</h5>
+                  <p>CrmOne SMS campaigns, allows you to create campaign sets for different different departments and use them accordingly. You can trigger a SMS for all business events like, new product launch, new offers, cashbacks that customers can use, and more. You can also send messages to your employees and share the business communication.</p>
+                  <p>All of these with one CRM tool, aimed to help you make your business communication faster and more personalized. Try CrmOne sms campaign feature, now and increase your response rate.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/SmsTemplateBottom.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/FormBuilder.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>form Builder</h2>
+               <p>As the name is self-explanatory. The form builder is a dynamic form builder used to ease your form development. You can build upon any existing form or can create a completely new form. Moreover, you also get the facility to edit, preview and clone any form of your choice.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Get a detailed view of the data submitted</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Curate all your data in excel or CSV</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Never miss an important information</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Inbuilt Form Designer</h6>
+                  <p>CrmOne provides an inbuilt form builder where the users can create unlimited forms. Moreover, that form can be embedded as well as linked anywhere and an infinite number of users can edit it as per their choice an infinite number of times.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Form Data Tracker</h6>
+                  <p>With CrmOne you can track your form data and can export it as per your requirement. Now never miss a query or lose a potential client due to latency.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Form Data Organiser</h6>
+                  <p>With CrmOne get a complete picture of all your data. Get a detailed view with every minute detail. Moreover, filter out any form and save your time.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Automated Form Builder</h5>
+                  <p>CrmOne comes with a drag and drop form builder. The user can create unlimited forms and add it to their website or landing pages. Data collected through forms gets added to the dashboard and then the user can send them emails or SMS as per their business needs.</p>
+                  <p>CrmOne allows the user to filter your data sets based on business needs and separate tasks can be created for each or a group of contacts.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/FormBuilderBottom.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/Survey.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>survey</h2>
+               <p>The survey tab that you will find here satisfies all your survey needs. With this full-fledged tab, you can create a new survey or can build over an existing survey. Moreover, you can also create a survey template if you desire. It even enables to have a clear mark of the active and inactive survey.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Unlimited access to create surveys</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">A detailed preview to peep into your survey</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">A well-drafted report to view the submissions</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Numerous Templates</h6>
+                  <p>CrmOne offers plenty of free Survey templates that you can use to generate a survey. You can build on pre-defined templates to access a survey quickly and can customise it as per your choice.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Unlimited Surveys</h6>
+                  <p>There is no limit on the number of surveys. You can create infinite surveys in a day, month, or hour. Moreover, it provides you the automated survey data collection and survey close options where you can set survey deadlines and other essentials.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color3"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Unlimited Users</h6>
+                  <p>Multiple team members from the same team can work on a single survey simultaneously. All you have to do is save your survey version after applying the changes and it will be visible to all the team members.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color4"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Well-Drafted Survey Report</h6>
+                  <p>CrmOne gives you a well-drafted report after every survey in the detailed section of the survey dashboard. You can duplicate, remove, or edit any survey. Moreover, there are easy drag & drop features that you can use to build your survey in minutes.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Record your Surveys</h5>
+                  <p>CrmOne allows the user to create a survey with ready to use templates or by using the drag and drop features. The user can create multiple surveys, targeted at either your employees or at your customers. Data collected can be analyzed and reports can be downloaded in excel form.</p>
+                  <p>Why buy limited packs from others and pay extra everytime you reach your usage quota? Use CrmOne, the only CRM with endless possibilities and unlimited survey creation and user base.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/SurveyBottom.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/EmailBuilder.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>email builder</h2>
+               <p>With email builder, you get complete access to create and delete any email template. Moreover, you can delete any campaign or can clone it as per the need. Getting access to create a template using HTML, drag and drop and text editor is an added benefit.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Create unlimited templates</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Avail any email template copy</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Develop any template from scratch even with coding</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Unlimited Predefined Email Templates</h6>
+                  <p>CrmOne gives you ample free email templates to fasten your process of cold emails and to be your mail specialist every time you wish to mail someone. It has a predefined body text that you can save or discard based on your choice.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Customised Email Templates</h6>
+                  <p>CrmOne knows you like customization so to fit your customization and personalization, Crmone also offers you an alternative where you can create your email templates and can use them. You can even create a pre-defined text to use.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>Advance Email Builder</h5>
+                  <p>Why pay 1000s of dollars to an email builder or to an agency, when you can use CrmOne to build an email that converts using ready to use templates or by simply using drag and drop features. No limit, create unlimited emails, add forms, products, surveys, and/or appointment scheduler.</p>
+                  <p>Use CrmOne, and create unlimited templates like newsletters, promotional offers, informational mails and others. You can also use HTML codes to customize your emails.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/EmailBuilderBottom.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-content">
+         <div class="small-detail">
+            <div class="tab_content_img">
+               <img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/SmsTemplate.png" alt="img">
+            </div>
+            <div class="tab_content_text">
+               <h2>sms template</h2>
+               <p>SMS Template is an absolute taskbar where you can create SMS templates. Here a list curated of specific SMS templates designated for different reasons is placed. You can either use the existing one or can create your customised SMS to curate it with customization.</p>
+               <ul class="tab_listing">
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" style="margin-right:10px;" alt="img" width="20px" height="20px">Create unlimited SMS templates</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Get a wider picture of available SMS templates to use</li>
+                  <li> <img src="https://firebasestorage.googleapis.com/v0/b/tasktool-238217.appspot.com/o/media_manager_gallery%2Fchecked.png?alt=media&token=861c2fd5-6665-4dda-87b6-228041b77274" alt="img" style="margin-right:10px;" width="20px" height="20px">Speed up your work using Clone & remove any SMS templates</li>
+               </ul>
+            </div>
+         </div>
+         <div class="more-detail">
+            <!-- <h4>Lorem ipsum dolor</h4> -->
+            <div class="content-block">
+               <div class="card-list">
+                  <div class="icon color1"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Unlimited Predefined SMS Templates</h6>
+                  <p>CrmOne gives you sufficient SMS templates precise for specific situations and events. You can build on them and can even modify the text within.</p>
+               </div>
+               <div class="card-list">
+                  <div class="icon color2"><img src="https://d3frdga3t4yih.cloudfront.net/crm/Detail_information.png" alt="icon" /></div>
+                  <h6>Customised Email Templates</h6>
+                  <p>With CrmOne you can even curate your specific SMS templates to match your business requirements and can store them to use later. There is no limit on the usage of a template.</p>
+               </div>
+            </div>
+         </div>
+         <div class="sub-section-detail">
+            <div class="content-center">
+               <div class="left">
+                  <h5>All-in-one SMS Template</h5>
+                  <p>CrmOne SMS template allows you to create ready to use SMS templates or access the pre-made templates and use them as per your business needs. There is absolutely no limit to the number of templates that you can create, modify, or save. So, create unlimited SMS templates aimed at customers or other stakeholders.</p>
+                  <p>You can save SMS templates with names and can import them directly while creating SMS campaigns using CrmOne.</p>
+               </div>
+               <div class="right">
+                  <div class="screen-img"><img src="https://d3frdga3t4yih.cloudfront.net/crm/admin-screen/SmsTemplate.png" alt="img" /></div>
+                  <a class="btn-trial" href="https://website.wlbl.in/website/template/62b5665176565070d83e54ff/pricing">
+                     <icon class="icon"><img src="https://d3frdga3t4yih.cloudfront.net/crm/arrow-btn.png" alt="img" /></icon>
+                     <div class="btn-text">
+                        <span class="title">21 Day Free Trial</span>
+                        <span class="label">Enhance your business potential</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
